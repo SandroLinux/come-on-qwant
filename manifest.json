@@ -1,0 +1,50 @@
+{
+ "name": "Come on Qwant!",
+ "description": "An extension which makes your default search Qwant and redirects you to qwant.com if you go to Google, Bing, Yahoo, Yandex, Baidu or Sogou",
+ "version": "1.3",
+ "manifest_version": 2,
+ "icons": {"48": "Come_on_Qwant_48.png"},
+ "content_scripts": [
+ {
+    "matches": [
+        "https://www.google.com/",
+        "https://www.google.co.uk/",
+        "https://www.google.ca/",
+        "https://www.google.com.hk/",
+        "https://www.google.com.au/",
+        "https://www.bing.com/",
+        "https://www.yahoo.com/",
+        "https://yandex.ru/",
+        "https://yandex.com/",
+        "https://www.baidu.com/",
+        "https://www.sogou.com/",
+        "https://www.google.com/*",
+        "https://www.google.ca/*",
+        "https://www.google.com.hk/*",
+        "https://www.google.com.au/*",
+        "https://www.bing.com/*",
+        "https://www.yahoo.com/*",
+        "https://yandex.ru/*",
+        "https://yandex.com/*",
+        "https://www.baidu.com/*",
+        "https://www.sogou.com/*"
+    ],
+    "js": ["redirect.js"]
+ }
+ ],
+ "chrome_settings_overrides": {
+         "homepage": "https://www.qwant.com/?client=ext-firefox-hp",
+         "search_provider": {
+             "name": "Qwant",
+             "keyword": "q",
+             "search_url": "https://www.qwant.com/?q={searchTerms}&client=ext-firefox-sb",
+             "favicon_url": "https://www.qwant.com/favicon.ico",
+             "suggest_url": "https://api.qwant.com/api/suggest/?q={searchTerms}&client=opensearch&lang=__MSG_locale__",
+             "is_default": true
+         }
+       },
+ "browser_action": {
+     "default_icon": "Come_on_Qwant!.png",
+     "default_popup": "extension.html"
+ }
+}
